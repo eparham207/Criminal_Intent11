@@ -1,5 +1,6 @@
 package com.parham.msu.criminal_intent11
 
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.parham.msu.criminal_intent11.databinding.ListItemCrimePoliceBinding
@@ -23,6 +24,11 @@ class CrimePoliceHolder(private val binding: ListItemCrimePoliceBinding) : Recyc
                 // Handle button click event for contacting the police
                 // For example, you can launch a new activity or show a dialog
             }
+        }
+        binding.crimeSolveddd.visibility = if(crime.isSolved) {
+            View.VISIBLE
+        } else {
+            View.GONE
         }
     }
 }
