@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.text.format.DateFormat
 import androidx.recyclerview.widget.RecyclerView
 import com.parham.msu.criminal_intent11.databinding.ListItemCrimeBinding
 import com.parham.msu.criminal_intent11.databinding.ListItemCrimePoliceBinding
@@ -13,7 +14,9 @@ class CrimeHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(crime: Crime) {
         binding.crimeTitle.text = crime.title
-        binding.crimeDate.text = crime.date.toString()
+        //binding.crimeDate.text = crime.date.toString()
+        val formattedDate = DateFormat.format("MMM dd, yyyy", crime.date)
+        binding.crimeDate.text = formattedDate.toString()
 
         binding.root.setOnClickListener {
             Toast.makeText(

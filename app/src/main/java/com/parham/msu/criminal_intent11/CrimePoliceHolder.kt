@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.parham.msu.criminal_intent11.databinding.ListItemCrimePoliceBinding
 import java.text.SimpleDateFormat
+import android.text.format.DateFormat
 import java.util.*
 
 class CrimePoliceHolder(private val binding: ListItemCrimePoliceBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -12,7 +13,9 @@ class CrimePoliceHolder(private val binding: ListItemCrimePoliceBinding) : Recyc
     fun bind(crime: Crime) {
         binding.apply {
             crimeTitle.text = crime.title
-            crimeDate.text = SimpleDateFormat("EEE MMM dd HH:mm z yyyy", Locale.getDefault()).format(crime.date)
+            //crimeDate.text = SimpleDateFormat("EEE MMM dd HH:mm z yyyy", Locale.getDefault()).format(crime.date)
+            val formattedDate = DateFormat.format("MMM dd, yyyy", crime.date)
+            binding.crimeDate.text = formattedDate.toString()
             root.setOnClickListener {
                 Toast.makeText(
                     binding.root.context,
